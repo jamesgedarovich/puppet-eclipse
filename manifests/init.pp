@@ -17,13 +17,6 @@ class eclipse {
          path => "/home/vagrant/.rvm/gems/ruby-1.9.3-p194/bin:/home/vagrant/.rvm/gems/ruby-1.9.3-p194@global/bin:/home/vagrant/.rvm/rubies/ruby-1.9.3-p194/bin:/home/vagrant/.rvm/bin:/usr/lib64/ccache:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/vagrant/.rvm/bin:/sbin:/usr/sbin:/home/vagrant/.local/bin:/home/vagrant/bin"
      }
 
-    file { '/usr/java/':
-        ensure => directory,
-        owner  => root,
-        group  => root,
-        mode   => 0775,
-    }
-
     archive::download { "eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz":
 	    ensure        => present,
 	    url           => $url32,
@@ -36,15 +29,6 @@ class eclipse {
         target     => "/usr/java",
         require    => Archive::Download["eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz"],
         notify     => Exec["chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64"]
-    }
-
-    group { "eclipse":
-        ensure => present,
-    }
-
-    user { 
-        name   => "kuali"
-        groups => "kuali,wheel,admin,eclipse"
     }
 
     exec { "chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz" :
