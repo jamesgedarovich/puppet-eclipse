@@ -34,7 +34,7 @@ class eclipse {
     archive::extract { "eclipse-jee-indigo-SR2-linux-gtk-x86_64":
         ensure     => present,
         target     => "/usr/java",
-        require    => Archive::Download["eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz"]
+        require    => Archive::Download["eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz"],
         notify     => Exec["chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64"]
     }
 
