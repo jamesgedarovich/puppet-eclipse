@@ -31,7 +31,7 @@ class eclipse {
         notify     => Exec["chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64"]
     }
 
-    exec { "chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz" :
+    exec { "chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64" :
         command => "chown -R root:eclipse /usr/java/eclipse",
         require => Archive::Extract["eclipse-jee-indigo-SR2-linux-gtk-x86_64"],
         refreshonly => true,
