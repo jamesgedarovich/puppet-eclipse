@@ -35,7 +35,7 @@ class eclipse {
         ensure     => present,
         target     => "/usr/java",
         require    => Archive::Download["eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz"]
-        notify     => Exec["chown-mule-${version_type}-${version}"]
+        notify     => Exec["chown-eclipse-jee-indigo-SR2-linux-gtk-x86_64"]
     }
 
     group { "eclipse":
