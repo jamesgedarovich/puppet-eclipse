@@ -20,7 +20,7 @@ class eclipse {
     archive::download { "eclipse-jee-indigo-SR2-linux-gtk-x86_64.tar.gz":
 	    ensure        => present,
 	    url           => $url32,
-        timeout       => 360,
+        timeout       => 720,
 	    checksum      => false,
     }
 
